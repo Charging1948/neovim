@@ -4,8 +4,7 @@
   pkgs,
   ...
 }:
-with lib.plusultra;
-with theme.nord; {
+with lib.plusultra; {
   config = {
     extraConfigLua = ''
       do
@@ -90,7 +89,7 @@ with theme.nord; {
       {
         mode = "t";
         key = "<C-o>";
-        action = ''<C-\><C-n>'';
+        action = "<C-\\><C-n>";
         options = {
           silent = true;
           desc = "Exit terminal mode";
@@ -98,9 +97,7 @@ with theme.nord; {
       }
     ];
 
-    globals = {
-      mapleader = " ";
-    };
+    globals = {mapleader = " ";};
 
     options = {
       autoindent = true;
@@ -114,6 +111,8 @@ with theme.nord; {
       number = true;
       relativenumber = true;
     };
+
+    luaLoader.enable = true;
 
     autoCmd = [
       {

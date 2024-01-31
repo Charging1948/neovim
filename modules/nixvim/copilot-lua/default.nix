@@ -59,6 +59,7 @@ with lib.plusultra; {
         cpp = true;
         nix = true;
         lua = true;
+        go = true;
 
         yaml = true;
         markdown = true;

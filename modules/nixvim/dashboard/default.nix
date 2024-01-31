@@ -1,18 +1,18 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }:
-with lib.plusultra;
-with lib.plusultra.theme.nord; {
+with lib.plusultra; {
   extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {
       pname = "dbsession.nvim";
-      version = "unstable-2023-05-31";
+      version = "unstable-2024-01-31";
       src = pkgs.fetchFromGitHub {
         owner = "nvimdev";
         repo = "dbsession.nvim";
-        rev = "8a9d15244190e5f191beef03d50f988e5077446c";
+        rev = "cdf680b9ed91c735418706b1125df91e5ba39251";
         sha256 = "12yrmnphspb3nyrsgvmp5m270k5hkw1gna904ypl90smskc4wiyx";
       };
     })
@@ -25,11 +25,11 @@ with lib.plusultra.theme.nord; {
     }
   '';
 
-  highlight = {
-    DashboardShortCut = {
-      fg = nord3;
-    };
-  };
+  # highlight = {
+  #   DashboardShortCut = {
+  #     fg = nord3;
+  #   };
+  # };
 
   keymaps = [
     {
@@ -56,51 +56,41 @@ with lib.plusultra.theme.nord; {
     dashboard = {
       enable = true;
 
-      theme = "hyper";
-      disableMove = true;
-      changeToVcsRoot = true;
+      hideStatusline = true;
+      hideTabline = true;
 
-      packages.enable = false;
-      week_header.enable = false;
+      # project = {
+      #   enable = true;
+      #   icon = "󰉋 ";
+      #   label = "Projects";
+      #   limit = 8;
+      #   action = "e ";
+      # };
+      #
+      # mru = {
+      #   icon = " ";
+      #   label = "Recent Files";
+      #   limit = 10;
+      # };
 
-      hide = {
-        statusline = true;
-        tabline = true;
-        winbar = true;
-      };
-
-      project = {
-        enable = true;
-        icon = "󰉋 ";
-        label = "Projects";
-        limit = 8;
-        action = "e ";
-      };
-
-      mru = {
-        icon = " ";
-        label = "Recent Files";
-        limit = 10;
-      };
-
-      shortcut = [
+      center = [
         {
           icon = " ";
           desc = "Open File ";
-          key = "f";
+          shortcut = "f";
           action = "Telescope find_files";
         }
         {
           icon = " ";
           desc = "Open Recent ";
-          key = "r";
+          shortcut = "r";
           action = "Telescope oldfiles";
         }
         {
           icon = " ";
           desc = "Open Config ";
-          key = "c";
-          action = "e $HOME/work/config";
+          shortcut = "c";
+          action = "e $HOME/config/";
         }
       ];
 
@@ -113,31 +103,31 @@ with lib.plusultra.theme.nord; {
         ""
       ];
 
-      footer = lua.mkRaw ''
-        (function()
-          local fortune_handle = io.popen("${pkgs.fortune}/bin/fortune -s")
-          local fortune_output = nil
-
-          if fortune_handle ~= nil then
-            fortune_output = fortune_handle:read("*a")
-            fortune_handle:close()
-          else
-            fortune_output = "fortune_handle was nil"
-          end
-
-          local footer = { "", "" }
-
-          if fortune_output ~= nil then
-            for line in string.gmatch(fortune_output, "(.-)\n") do
-              table.insert(footer, line)
-            end
-          else
-            table.insert(footer, "Go even further beyond ✨")
-          end
-
-          return footer
-        end)()
-      '';
+      # footer = lua.mkRaw ''
+      #   (function()
+      #     local fortune_handle = io.popen("${pkgs.fortune}/bin/fortune -s")
+      #     local fortune_output = nil
+      #
+      #     if fortune_handle ~= nil then
+      #       fortune_output = fortune_handle:read("*a")
+      #       fortune_handle:close()
+      #     else
+      #       fortune_output = "fortune_handle was nil"
+      #     end
+      #
+      #     local footer = { "", "" }
+      #
+      #     if fortune_output ~= nil then
+      #       for line in string.gmatch(fortune_output, "(.-)\n") do
+      #         table.insert(footer, line)
+      #       end
+      #     else
+      #       table.insert(footer, "Go even further beyond ✨")
+      #     end
+      #
+      #     return footer
+      #   end)()
+      # '';
     };
   };
 }

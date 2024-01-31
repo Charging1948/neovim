@@ -1,10 +1,10 @@
-{
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 with lib.plusultra; {
   plugins = {
+    lspkind = {
+      enable = true;
+      cmp.enable = true;
+    };
     lsp = {
       enable = true;
 
@@ -70,23 +70,52 @@ with lib.plusultra; {
       servers = {
         astro.enable = true;
         bashls.enable = true;
-        cmake.enable = true;
-        clangd.enable = true;
+        cssls.enable = true;
+        elixirls.enable = true;
+        emmet_ls.enable = true;
+        hls.enable = true;
+        java-language-server.enable = true;
+        kotlin-language-server.enable = true;
+        leanls.enable = true;
+        ltex.enable = true;
+        # Add neorg to enabled filetypes for ltex
+        ltex.settings.enabled = [
+          "bibtex"
+          "context"
+          "context.tex"
+          "html"
+          "latex"
+          "markdown"
+          "org"
+          "restructuredtext"
+          "rsweave"
+          "neorg"
+        ];
+        rnix-lsp.enable = true;
+        prismals.enable = true;
+        pylsp.enable = true;
+        svelte.enable = true;
+        taplo.enable = true;
+        texlab.enable = true;
+        typst-lsp.enable = true;
+        volar.enable = true;
+        zls.enable = true;
+
         eslint = {
           enable = true;
 
-          extraOptions = {
-            settings = {
-              autoFixOnSave = true;
-            };
-          };
+          extraOptions = { settings = { autoFixOnSave = true; }; };
         };
         gopls.enable = true;
         html.enable = true;
         jsonls.enable = true;
         lua-ls.enable = true;
         pyright.enable = true;
-        rust-analyzer.enable = true;
+        rust-analyzer = {
+          installCargo = true;
+          installRustc = true;
+          enable = true;
+        };
         tailwindcss.enable = true;
         tsserver = {
           enable = true;
