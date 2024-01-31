@@ -76,19 +76,19 @@ with lib.plusultra; {
         {
           icon = " ";
           desc = "Open File ";
-          key = "f";
+          shortcut = "f";
           action = "Telescope find_files";
         }
         {
           icon = " ";
           desc = "Open Recent ";
-          key = "r";
+          shortcut = "r";
           action = "Telescope oldfiles";
         }
         {
           icon = " ";
           desc = "Open Config ";
-          key = "c";
+          shortcut = "c";
           action = "e $HOME/work/config";
         }
       ];
