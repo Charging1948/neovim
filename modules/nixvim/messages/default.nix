@@ -1,4 +1,4 @@
-{lib, ...}: {
+_: {
   extraConfigLuaPre = ''
     vim.opt.shortmess:append("IWs")
   '';
