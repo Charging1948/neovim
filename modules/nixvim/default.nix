@@ -99,6 +99,14 @@ with lib.plusultra; {
 
     globals = {mapleader = " ";};
 
+    clipboard = {
+      register = "unnamedplus";
+      providers = {
+        xclip.enable = true;
+        wl-copy.enable = true;
+      };
+    };
+
     options = {
       autoindent = true;
       cursorline = true;
