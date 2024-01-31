@@ -112,7 +112,7 @@ with lib.plusultra; {
       relativenumber = true;
     };
 
-    # luaLoader.enable = true;
+    luaLoader.enable = true;
 
     autoCmd = [
       {

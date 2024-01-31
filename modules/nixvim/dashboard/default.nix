@@ -1,7 +1,8 @@
-{ lib
-, pkgs
-, config
-, ...
+{
+  lib,
+  pkgs,
+  config,
+  ...
 }:
 with lib.plusultra; {
   extraPlugins = [
@@ -89,7 +90,7 @@ with lib.plusultra; {
           icon = " ";
           desc = "Open Config ";
           shortcut = "c";
-          action = "e $HOME/work/config";
+          action = "e $HOME/config/";
         }
       ];
 
