@@ -1,7 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }: {
   plugins = {
     # null-ls has been forked to none-ls after the original author archived the project.
@@ -63,6 +62,7 @@
           phpcbf.enable = true;
           pint.enable = true;
           prettier.enable = true;
+          prettier.disableTsServerFormatter = true;
           protolint.enable = true;
           rustfmt.enable = true;
           shfmt.enable = true;

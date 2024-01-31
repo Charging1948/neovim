@@ -1,7 +1,6 @@
-{
-  lib,
-  config,
-  ...
+{ lib
+, config
+, ...
 }: {
   colorschemes.catppuccin = {
     enable = true;
@@ -24,13 +23,13 @@
       indent_blankline.colored_indent_levels = config.plugins.indent-blankline.enable;
 
       leap = config.plugins.leap.enable;
-      lsp_saga = config.plugins.lsp-saga.enable;
+      lsp_saga = config.plugins.lspsaga.enable;
       native_lsp.enabled = config.plugins.lsp.enable;
       navic.enabled = config.plugins.navic.enable;
       noice = config.plugins.noice.enable;
       notify = config.plugins.notify.enable;
       nvimtree = config.plugins.nvim-tree.enable;
-      overseer = config.plugins.overseer.enable;
+      # overseer = config.plugins.overseer.enable;
       rainbow_delimiters = config.plugins.rainbow-delimiters.enable;
       telescope.enabled = config.plugins.telescope.enable;
       treesitter = config.plugins.treesitter.enable;

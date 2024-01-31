@@ -102,31 +102,31 @@ with lib.plusultra; {
         ""
       ];
 
-      footer = lua.mkRaw ''
-        (function()
-          local fortune_handle = io.popen("${pkgs.fortune}/bin/fortune -s")
-          local fortune_output = nil
-
-          if fortune_handle ~= nil then
-            fortune_output = fortune_handle:read("*a")
-            fortune_handle:close()
-          else
-            fortune_output = "fortune_handle was nil"
-          end
-
-          local footer = { "", "" }
-
-          if fortune_output ~= nil then
-            for line in string.gmatch(fortune_output, "(.-)\n") do
-              table.insert(footer, line)
-            end
-          else
-            table.insert(footer, "Go even further beyond ✨")
-          end
-
-          return footer
-        end)()
-      '';
+      # footer = lua.mkRaw ''
+      #   (function()
+      #     local fortune_handle = io.popen("${pkgs.fortune}/bin/fortune -s")
+      #     local fortune_output = nil
+      #
+      #     if fortune_handle ~= nil then
+      #       fortune_output = fortune_handle:read("*a")
+      #       fortune_handle:close()
+      #     else
+      #       fortune_output = "fortune_handle was nil"
+      #     end
+      #
+      #     local footer = { "", "" }
+      #
+      #     if fortune_output ~= nil then
+      #       for line in string.gmatch(fortune_output, "(.-)\n") do
+      #         table.insert(footer, line)
+      #       end
+      #     else
+      #       table.insert(footer, "Go even further beyond ✨")
+      #     end
+      #
+      #     return footer
+      #   end)()
+      # '';
     };
   };
 }

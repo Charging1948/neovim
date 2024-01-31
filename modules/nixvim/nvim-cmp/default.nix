@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   extraPlugins = with pkgs.vimPlugins; [
     luasnip
   ];
@@ -9,7 +9,7 @@
 
       snippet.expand = "luasnip";
 
-      mappingPresets = ["insert"];
+      mappingPresets = [ "insert" ];
 
       sources = [
         {
@@ -59,7 +59,7 @@
             end
           '';
 
-          modes = ["i" "s"];
+          modes = [ "i" "s" ];
         };
         "<C-p>" = {
           action = ''
@@ -74,7 +74,7 @@
             end
           '';
 
-          modes = ["i" "s"];
+          modes = [ "i" "s" ];
         };
       };
     };
