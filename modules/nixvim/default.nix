@@ -1,8 +1,7 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
+{ lib
+, config
+, pkgs
+, ...
 }:
 with lib.plusultra; {
   config = {
@@ -114,10 +113,12 @@ with lib.plusultra; {
       relativenumber = true;
     };
 
+    luaLoader.enable = true;
+
     autoCmd = [
       {
-        event = ["BufRead" "BufNewFile"];
-        pattern = ["*.txt" "*.md" "*.tex"];
+        event = [ "BufRead" "BufNewFile" ];
+        pattern = [ "*.txt" "*.md" "*.tex" ];
         command = "setlocal spell";
       }
     ];
