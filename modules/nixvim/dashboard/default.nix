@@ -1,10 +1,9 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, config
+, ...
 }:
-with lib.plusultra;
-with lib.plusultra.theme.nord; {
+with lib.plusultra; {
   extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {
       pname = "dbsession.nvim";
@@ -25,11 +24,11 @@ with lib.plusultra.theme.nord; {
     }
   '';
 
-  highlight = {
-    DashboardShortCut = {
-      fg = nord3;
-    };
-  };
+  # highlight = {
+  #   DashboardShortCut = {
+  #     fg = nord3;
+  #   };
+  # };
 
   keymaps = [
     {
@@ -56,34 +55,24 @@ with lib.plusultra.theme.nord; {
     dashboard = {
       enable = true;
 
-      theme = "hyper";
-      disableMove = true;
-      changeToVcsRoot = true;
+      hideStatusline = true;
+      hideTabline = true;
 
-      packages.enable = false;
-      week_header.enable = false;
+      # project = {
+      #   enable = true;
+      #   icon = "󰉋 ";
+      #   label = "Projects";
+      #   limit = 8;
+      #   action = "e ";
+      # };
+      #
+      # mru = {
+      #   icon = " ";
+      #   label = "Recent Files";
+      #   limit = 10;
+      # };
 
-      hide = {
-        statusline = true;
-        tabline = true;
-        winbar = true;
-      };
-
-      project = {
-        enable = true;
-        icon = "󰉋 ";
-        label = "Projects";
-        limit = 8;
-        action = "e ";
-      };
-
-      mru = {
-        icon = " ";
-        label = "Recent Files";
-        limit = 10;
-      };
-
-      shortcut = [
+      center = [
         {
           icon = " ";
           desc = "Open File ";
