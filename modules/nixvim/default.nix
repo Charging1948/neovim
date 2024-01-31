@@ -99,6 +99,8 @@ with lib.plusultra; {
 
     globals = {mapleader = " ";};
 
+    extraPackages = with pkgs; [ripgrep fd];
+
     clipboard = {
       register = "unnamedplus";
       providers = {
@@ -118,6 +120,9 @@ with lib.plusultra; {
       mouse = "";
       number = true;
       relativenumber = true;
+
+      scrolloff = 8;
+      sidescrolloff = 8;
     };
 
     luaLoader.enable = true;
