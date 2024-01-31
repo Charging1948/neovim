@@ -4,9 +4,7 @@
   ...
 }:
 with lib.plusultra; {
-  extraPlugins = with pkgs.vimPlugins; [
-    telescope-symbols-nvim
-  ];
+  extraPlugins = with pkgs.vimPlugins; [telescope-symbols-nvim];
 
   extraConfigLua = ''
     do
@@ -66,6 +64,14 @@ with lib.plusultra; {
   plugins = {
     telescope = {
       enable = true;
+      extensions = {
+        file_browser.enable = true;
+        frecency.enable = true;
+        fzf-native.enable = true;
+        media_files.enable = true;
+        ui-select.enable = true;
+        undo.enable = true;
+      };
     };
   };
 }
