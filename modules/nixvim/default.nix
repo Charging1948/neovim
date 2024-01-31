@@ -1,7 +1,8 @@
-{ lib
-, config
-, pkgs
-, ...
+{
+  lib,
+  config,
+  pkgs,
+  ...
 }:
 with lib.plusultra; {
   config = {
@@ -88,7 +89,7 @@ with lib.plusultra; {
       {
         mode = "t";
         key = "<C-o>";
-        action = ''<C-\><C-n>'';
+        action = "<C-\\><C-n>";
         options = {
           silent = true;
           desc = "Exit terminal mode";
@@ -96,9 +97,7 @@ with lib.plusultra; {
       }
     ];
 
-    globals = {
-      mapleader = " ";
-    };
+    globals = {mapleader = " ";};
 
     options = {
       autoindent = true;
@@ -113,12 +112,12 @@ with lib.plusultra; {
       relativenumber = true;
     };
 
-    luaLoader.enable = true;
+    # luaLoader.enable = true;
 
     autoCmd = [
       {
-        event = [ "BufRead" "BufNewFile" ];
-        pattern = [ "*.txt" "*.md" "*.tex" ];
+        event = ["BufRead" "BufNewFile"];
+        pattern = ["*.txt" "*.md" "*.tex"];
         command = "setlocal spell";
       }
     ];

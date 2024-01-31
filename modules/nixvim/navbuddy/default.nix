@@ -1,5 +1,5 @@
 _: {
-  plugins.navic = {
+  plugins.navbuddy = {
     enable = true;
     lsp.autoAttach = true;
   };
