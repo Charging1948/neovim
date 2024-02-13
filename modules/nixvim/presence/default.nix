@@ -1,6 +1,1 @@
-_: {
-  plugins.presence-nvim = {
-    enable = true;
-    enableLineNumber = true;
-  };
-}
+_: {plugins.presence-nvim = {enable = true;};}
