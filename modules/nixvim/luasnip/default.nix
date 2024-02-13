@@ -1,9 +1,14 @@
-_: {
-  plugins = {
+{
+  config,
+  lib,
+  ...
+}: {
+  config.plugins = {
     friendly-snippets = {enable = true;};
+    cmp_luasnip.enable = lib.mkIf config.plugins.nvim-cmp.enable true;
     luasnip = {
       enable = true;
-      fromLua = [{paths = "./snippets";}];
+      fromLua = [{paths = "${./snippets}";}];
       fromVscode = [{}];
       extraConfig = {
         history = true;

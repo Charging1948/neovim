@@ -1,6 +1,7 @@
-{ lib
-, config
-, ...
+{
+  lib,
+  config,
+  ...
 }: {
   colorschemes.catppuccin = {
     enable = true;
@@ -20,7 +21,8 @@
       illuminate.lsp = config.plugins.illuminate.enable;
 
       indent_blankline.enabled = config.plugins.indent-blankline.enable;
-      indent_blankline.colored_indent_levels = config.plugins.indent-blankline.enable;
+      indent_blankline.colored_indent_levels =
+        config.plugins.indent-blankline.enable;
 
       leap = config.plugins.leap.enable;
       lsp_saga = config.plugins.lspsaga.enable;

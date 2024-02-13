@@ -1,4 +1,4 @@
-{lib, ...}:
+{ config, lib, ... }:
 with lib.plusultra; {
   keymaps = [
     {
@@ -13,7 +13,8 @@ with lib.plusultra; {
     {
       mode = "n";
       key = "<leader>tc";
-      action = "<cmd>:lua require('copilot.suggestion').toggle_auto_trigger()<cr>";
+      action =
+        "<cmd>:lua require('copilot.suggestion').toggle_auto_trigger()<cr>";
       options = {
         silent = true;
         desc = "Toggle Copilot";
@@ -22,6 +23,7 @@ with lib.plusultra; {
   ];
 
   plugins = {
+    copilot-cmp.enable = lib.mkIf config.plugins.nvim-cmp.enable true;
     copilot-lua = {
       enable = true;
 
