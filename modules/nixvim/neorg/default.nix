@@ -22,6 +22,18 @@ with lib.plusultra; {
           icon_preset = "diamond";
         };
       };
+      "core.presenter" = {config = {zen_mode = "zen-mode";};};
+      "core.export" = {
+        config = {export_dir = "<export-dir>/<language>-export";};
+      };
+      "core.export.markdown" = {
+        config = {
+          extension = "md";
+          extensions = "all";
+        };
+      };
+      "core.summary" = {config = {strategy = "default";};};
+      "core.ui.calendar" = {};
     };
   };
 }
