@@ -1,1 +1,1 @@
-{lib, ...}: with lib.plusultra; {plugins.image = enabled;}
+{lib, ...}: with lib.plusultra; {plugins.image.enable = true;}
