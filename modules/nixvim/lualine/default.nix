@@ -4,6 +4,7 @@
   config,
   ...
 }:
+with lib;
 with lib.plusultra; {
   config = {
     extraPlugins = with pkgs.vimPlugins; [neodev-nvim];
@@ -57,7 +58,24 @@ with lib.plusultra; {
           }
           {name = "diff";}
         ];
-        lualine_c = [""];
+        # TODO: Remove hardcoded color and fixup the raw usage of lua
+        lualine_c = [
+          {
+            name = lua.mkRaw ''
+              function()
+                return require("noice").api.statusline.file.get()
+              end
+            '';
+            extraConfig = {
+              cond = lua.mkRaw ''
+                function()
+                  return require("noice").api.statusline.file.has()
+                end
+              '';
+              color = {fg = "#ff9e64";};
+            };
+          }
+        ];
         lualine_x = [
           {
             name = "diagnostics";
