@@ -1,15 +1,19 @@
-{ pkgs, ... }: {
-  extraPlugins = with pkgs.vimPlugins; [
-    luasnip
-  ];
-
+{pkgs, ...}: {
   plugins = {
+    cmp-path.enable = true;
+    cmp-nvim-lua.enable = true;
+    cmp-nvim-lsp.enable = true;
+    cmp-treesitter.enable = true;
+    cmp-dap.enable = true;
+    cmp-fuzzy-path.enable = true;
+    cmp-nvim-lsp-signature-help.enable = true;
+    cmp-latex-symbols.enable = true;
     nvim-cmp = {
       enable = true;
 
       snippet.expand = "luasnip";
 
-      mappingPresets = [ "insert" ];
+      mappingPresets = ["insert"];
 
       sources = [
         {
@@ -24,9 +28,7 @@
         }
         {
           name = "luasnip";
-          option = {
-            show_autosnippets = true;
-          };
+          option = {show_autosnippets = true;};
           groupIndex = 1;
           priority = 5;
         }
@@ -59,7 +61,7 @@
             end
           '';
 
-          modes = [ "i" "s" ];
+          modes = ["i" "s"];
         };
         "<C-p>" = {
           action = ''
@@ -74,7 +76,7 @@
             end
           '';
 
-          modes = [ "i" "s" ];
+          modes = ["i" "s"];
         };
       };
     };
