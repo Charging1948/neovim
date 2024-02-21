@@ -13,7 +13,7 @@ with lib.plusultra; {
         owner = "nvimdev";
         repo = "dbsession.nvim";
         rev = "cdf680b9ed91c735418706b1125df91e5ba39251";
-        sha256 = "12yrmnphspb3nyrsgvmp5m270k5hkw1gna904ypl90smskc4wiyx";
+        sha256 = "UJXzYQsRlTNudgHs+ugxgxg7zq/61xW8aonsEhlfNC8=";
       };
     })
   ];
