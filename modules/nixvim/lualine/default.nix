@@ -20,6 +20,32 @@ with lib.plusultra; {
         },
       }
     '';
+
+    autoGroups.macro_recording.clear = true;
+    autoCmd = [
+      {
+        event = "RecordingEnter";
+        pattern = "*";
+        callback =
+          lua.mkRaw
+          "function() require('lualine').refresh({ place = { 'statusline' } }) end";
+      }
+      {
+        event = "RecordingLeave";
+        pattern = "*";
+        callback = lua.mkRaw ''
+          function()
+            local timer = vim.loop.new_timer()
+            timer:start(
+              50,
+              0,
+              vim.schedule_wrap(function() require('lualine').refresh({ place = { 'statusline' } }) end)
+            )
+          end
+        '';
+      }
+    ];
+
     options = {laststatus = 3;};
 
     plugins.lualine = {
@@ -45,9 +71,10 @@ with lib.plusultra; {
         lualine_a = [
           {
             name = lua.mkRaw ''
-              function()
+              function
+              ()
                 return ""
-              end
+                end
             '';
           }
         ];
@@ -58,18 +85,18 @@ with lib.plusultra; {
           }
           {name = "diff";}
         ];
-        # TODO: Remove hardcoded color and fixup the raw usage of lua
         lualine_c = [
           {
-            name = lua.mkRaw ''
-              function()
-                return require("noice").api.statusline.file.get()
-              end
-            '';
+            name = "macro_recording";
             extraConfig = {
-              cond = lua.mkRaw ''
+              fmt = lua.mkRaw ''
                 function()
-                  return require("noice").api.statusline.file.has()
+                  local recording_register = vim.fn.reg_recording()
+                  if recording_register == "" then
+                    return ""
+                  else
+                    return "Recording @" .. recording_register
+                  end
                 end
               '';
               color = {fg = "#ff9e64";};
@@ -128,7 +155,7 @@ with lib.plusultra; {
           {
             name = lua.mkRaw ''
               function()
-                return require("nvim-navic").get_location()
+              return require("nvim-navic").get_location()
               end
             '';
           }
