@@ -1,6 +1,19 @@
 return {
 	s("pul", {
-		t("{pkgs, lib, config, ...}:"),
+		fmt(
+			[[
+{{
+  pkgs,
+  lib,
+  ...
+}}:
+with lib;
+with lib.plusultra; {{
+	{}
+}}
+]],
+			i(1, "body")
+		),
 		t("with lib.plusultra; {\t"),
 		i(1, "body"),
 		t(""),
