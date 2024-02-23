@@ -1,7 +1,7 @@
 {pkgs, ...}:
 pkgs.vimUtils.buildVimPlugin {
   pname = "magma-nvim";
-  version = "2023-03-13";
+  version = "2024-02-23";
   src = pkgs.fetchFromGitHub {
     owner = "dccsillag";
     repo = "magma-nvim";
