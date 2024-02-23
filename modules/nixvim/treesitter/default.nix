@@ -22,6 +22,7 @@ with lib.plusultra; {
   plugins = {
     treesitter = {
       enable = true;
+      folding.enable = true;
     };
   };
 }
