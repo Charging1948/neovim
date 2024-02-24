@@ -1,4 +1,8 @@
-{pkgs, ...}:
+{
+  pkgs,
+  lib,
+  ...
+}:
 pkgs.vimUtils.buildVimPlugin {
   pname = "magma-nvim";
   version = "2024-02-23";
@@ -6,7 +10,7 @@ pkgs.vimUtils.buildVimPlugin {
     owner = "dccsillag";
     repo = "magma-nvim";
     rev = "ff3deba8a879806a51c005e50782130246143d06";
-    sha256 = "10d6dh0czdpgfpzqs5vzxfffkm0460qjzi2mfkacgghqf3iwkbja";
+    sha256 = lib.fakeSha256;
   };
   passthru.python3Dependencies = ps:
     with ps; [
