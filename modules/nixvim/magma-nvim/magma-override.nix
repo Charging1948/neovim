@@ -10,7 +10,8 @@ pkgs.vimUtils.buildVimPlugin {
     owner = "dccsillag";
     repo = "magma-nvim";
     rev = "ff3deba8a879806a51c005e50782130246143d06";
-    sha256 = lib.fakeSha256;
+    # sha256 = lib.fakeSha256;
+    sha256 = "IrMR57gk9iCk73esHO24KZeep9VrlkV5sOC4PzGexyo=";
   };
   passthru.python3Dependencies = ps:
     with ps; [
