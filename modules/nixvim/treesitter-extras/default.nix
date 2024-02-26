@@ -6,6 +6,7 @@ _: {
     navigation.enable = true;
     smartRename.enable = true;
   };
-  plugins.treesitter-context = {enable = true;};
+  plugins.treesitter-context.enable = true;
+  plugins.treesitter-textobjects.enable = true;
   plugins.treesitter-textobjects.lspInterop.enable = true;
 }
