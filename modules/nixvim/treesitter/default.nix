@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 with lib.plusultra; {
   extraConfigLua = ''
     require("which-key").register({
@@ -23,6 +19,8 @@ with lib.plusultra; {
     treesitter = {
       enable = true;
       folding = true;
+      indent = true;
+      nixvimInjections = true;
     };
   };
 }
