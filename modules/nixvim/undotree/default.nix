@@ -17,11 +17,13 @@ with lib.plusultra; {
       enable = true;
 
       # https://github.com/mbbill/undotree/blob/0e11ba7325efbbb3f3bebe06213afa3e7ec75131/plugin/undotree.vim#L29
-      windowLayout = 3;
-      focusOnToggle = true;
-      treeNodeShape = "";
-      autoOpenDiff = false;
-      windowWidth = 50;
+      settings = {
+        WindowLayout = 3;
+        FocusOnToggle = true;
+        TreeNodeShape = "";
+        AutoOpenDiff = false;
+        WindowWidth = 50;
+      };
     };
   };
 
