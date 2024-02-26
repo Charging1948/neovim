@@ -123,6 +123,8 @@ with lib.plusultra; {
 
       scrolloff = 8;
       sidescrolloff = 8;
+
+      foldlevelstart = 99;
     };
 
     luaLoader.enable = true;
