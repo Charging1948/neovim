@@ -1,0 +1,1 @@
+{...}: {plugins.intellitab = {enable = true;};}
