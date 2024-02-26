@@ -1,0 +1,1 @@
+{plugins.specs.enable = true;}
