@@ -1,3 +1,1 @@
-{lib, ...}: {
-  editorconfig.enable = true;
-}
+_: {editorconfig.enable = true;}
