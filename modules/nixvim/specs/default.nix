@@ -1,1 +1,1 @@
-{plugins.specs.enable = true;}
+_: {plugins.specs.enable = true;}

@@ -1,1 +1,1 @@
-{plugins.ts-autotag.enable = true;}
+_: {plugins.ts-autotag.enable = true;}

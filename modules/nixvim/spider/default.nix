@@ -1,4 +1,4 @@
-{
+_: {
   plugins.spider = {
     enable = true;
     keymaps.motions = {

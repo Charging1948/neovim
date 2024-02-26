@@ -1,3 +1,1 @@
-{
-  plugins.gitblame.enable = true;
-}
+_: {plugins.gitblame.enable = true;}

@@ -1,1 +1,1 @@
-{plugins.rest.enable = true;}
+_: {plugins.rest.enable = true;}

@@ -1,1 +1,1 @@
-{plugins.vim-bbye.enable = true;}
+_: {plugins.vim-bbye.enable = true;}
