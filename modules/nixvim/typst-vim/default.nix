@@ -4,5 +4,5 @@
   ...
 }: {
   plugins.typst-vim.enable = true;
-  plugins.typst-vim.extraConfig.pdf_viewer = "${pkgs.zathura}/bin/zathura";
+  plugins.typst-vim.settings.pdf_viewer = "${pkgs.zathura}/bin/zathura";
 }
