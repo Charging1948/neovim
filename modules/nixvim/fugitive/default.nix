@@ -1,1 +1,1 @@
-{...}: {plugins = {fugitive = {enable = false;};};}
+{...}: {plugins.fugitive.enable = false;}
