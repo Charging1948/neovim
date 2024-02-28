@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 with lib.plusultra; {
   plugins = {
     lspkind = {
@@ -104,13 +108,13 @@ with lib.plusultra; {
         eslint = {
           enable = true;
 
-          extraOptions = { settings = { autoFixOnSave = true; }; };
+          extraOptions = {settings = {autoFixOnSave = true;};};
         };
         gopls.enable = true;
         html.enable = true;
         jsonls.enable = true;
         lua-ls.enable = true;
-        pyright.enable = true;
+        # pyright.enable = true;
         rust-analyzer = {
           installCargo = true;
           installRustc = true;
