@@ -1,7 +1,4 @@
-{ lib
-, pkgs
-, ...
-}: {
+{ lib, pkgs, ... }: {
   plugins = {
     # null-ls has been forked to none-ls after the original author archived the project.
     none-ls = {
@@ -60,7 +57,6 @@
           ktlint.enable = true;
           markdownlint.enable = true;
           phpcbf.enable = true;
-          pint.enable = true;
           prettier.enable = true;
           prettier.disableTsServerFormatter = true;
           protolint.enable = true;
