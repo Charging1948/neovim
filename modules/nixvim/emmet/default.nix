@@ -1,6 +1,6 @@
 _: {
   plugins.emmet = {
     enable = true;
-    mode = "i";
+    settings.mode = "i";
   };
 }
