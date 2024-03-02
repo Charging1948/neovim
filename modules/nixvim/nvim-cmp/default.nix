@@ -8,6 +8,12 @@
     cmp-fuzzy-path.enable = true;
     cmp-nvim-lsp-signature-help.enable = true;
     cmp-latex-symbols.enable = true;
+    cmp-emoji.enable = true;
+    cmp-spell.enable = true;
+    cmp-buffer.enable = true;
+    cmp-calc.enable = true;
+    cmp-pandoc-references.enable = true;
+
     nvim-cmp = {
       enable = true;
 
@@ -16,6 +22,22 @@
       mappingPresets = ["insert"];
 
       sources = [
+        {
+          name = "otter";
+          groupIndex = 1;
+          priority = 7;
+        }
+        {
+          name = "path";
+          groupIndex = 1;
+          priority = 6;
+        }
+        {
+          name = "luasnip";
+          option = {show_autosnippets = true;};
+          groupIndex = 1;
+          priority = 5;
+        }
         {
           name = "copilot";
           groupIndex = 1;
@@ -27,19 +49,45 @@
           priority = 3;
         }
         {
-          name = "luasnip";
-          option = {show_autosnippets = true;};
+          name = "nvim_lsp_signature_help";
           groupIndex = 1;
-          priority = 5;
+          priority = 2;
         }
         {
-          name = "path";
+          name = "pandoc_references";
           groupIndex = 1;
+          priority = 1;
         }
         {
           name = "buffer";
           groupIndex = 2;
+          priority = 6;
+          option = {};
+        }
+        {
+          name = "spell";
+          groupIndex = 2;
+          priority = 5;
+        }
+        {
+          name = "treesitter";
+          groupIndex = 2;
+          priority = 4;
+        }
+        {
+          name = "calc";
+          groupIndex = 2;
+          priority = 3;
+        }
+        {
+          name = "latex_symbols";
+          groupIndex = 2;
           priority = 2;
+        }
+        {
+          name = "emoji";
+          groupIndex = 2;
+          priority = 1;
         }
       ];
 
