@@ -12,11 +12,6 @@ with lib.plusultra; {
 
     extraConfigLuaPost = ''
       require('otter').setup({
-        lsp = {
-          hover = {
-            border = require("misc.style").border,
-          },
-        },
         buffers = {
           -- if set to true, the filetype of the otterbuffers will be set.
           -- otherwise only the autocommand of lspconfig that attaches
