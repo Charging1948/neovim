@@ -11,8 +11,6 @@ with lib.plusultra; {
     extraPackages = with pkgs; [quarto typst typstfmt typst-lsp typst-live];
 
     extraConfigLuaPost = ''
-      let g:quarto_executable = "${quarto}/bin/quarto"
-
       require('otter').setup({
         lsp = {
           hover = {
