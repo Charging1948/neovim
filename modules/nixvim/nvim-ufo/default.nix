@@ -4,7 +4,7 @@
   ...
 }: {
   config = {
-    plugins.vim-ufo.enable = true;
+    plugins.nvim-ufo.enable = true;
 
     options = {
       foldlevel = 99;
