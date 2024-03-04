@@ -4,18 +4,41 @@
     none-ls = {
       enable = true;
       enableLspFormat = true;
+      # TODO: Find replacements for still commented out plugins
       sources = {
         code_actions = {
-          eslint_d.enable = true;
           gitsigns.enable = true;
-          ltrs.enable = true;
-          shellcheck.enable = true;
+          gitrebase.enable = true;
+          ts_node_action.enable = true;
+          impl.enable = true;
+          gomodifytags.enable = true;
           statix.enable = true;
+          proselint.enable = true;
+          refactoring.enable = true;
+
+          # eslint_d.enable = true;
+          # ltrs.enable = true;
+          # shellcheck.enable = true;
+        };
+        completion = {
+          luasnip.enable = true;
+          spell.enable = true;
+          tags.enable = true;
         };
         diagnostics = {
-          eslint_d.enable = true;
+          actionlint.enable = true;
           ansiblelint.enable = true;
+          alex.enable = true;
+          buf.enable = true;
+          checkmake.enable = true;
+          checkstyle.enable = true;
+          clazy.enable = true;
+          cmake_lint.enable = true;
+          codespell.enable = true;
+          commitlint.enable = true;
           cppcheck.enable = true;
+          # eslint_d.enable = true;
+          ruff.enable = true;
           bandit.enable = true;
           flake8.enable = true;
           gitlint.enable = true;
