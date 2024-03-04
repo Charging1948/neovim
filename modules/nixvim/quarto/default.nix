@@ -25,6 +25,7 @@ with lib.plusultra; {
           languages = { "r", "python", "julia", "bash", "lua", "html", "dot", "javascript", "typescript", "ojs" },
         },
         codeRunner = {
+          enabled = true,
           default_method = 'molten',
         },
       })
