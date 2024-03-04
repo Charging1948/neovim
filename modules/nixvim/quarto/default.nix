@@ -24,6 +24,9 @@ with lib.plusultra; {
         lspFeatures = {
           languages = { "r", "python", "julia", "bash", "lua", "html", "dot", "javascript", "typescript", "ojs" },
         },
+        codeRunner = {
+          default_method = 'molten',
+        },
       })
     '';
   };
