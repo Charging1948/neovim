@@ -1,0 +1,29 @@
+{pkgs, ...}: {
+  extraPlugins = with pkgs; [
+    (pkgs.vimUtils.buildVimPlugin {
+      pname = "jupytext-nvim";
+      version = "2024-03-04";
+      src = pkgs.fetchFromGitHub {
+        owner = "GCBallesteros";
+        repo = "jupytext.nvim";
+        rev = "68fddf28119dbaddfaea6b71f3d6aa1e081afb93";
+        sha256 = lib.fakeSha256;
+        # sha256 = "IrMR57gk9iCk73esHO24KZeep9VrlkV5sOC4PzGexyo=";
+      };
+      passthru.python3Dependencies = ps: with ps; [jupytext];
+      meta.homepage = "https://github.com/GCBallesteros/jupytext.nvim";
+    })
+  ];
+
+  extraConfigLuaPost = ''
+    require('jupytext').setup({
+      custom_language_formatting = {
+        python = {
+            extension = "qmd",
+            style = "quarto",
+            force_ft = "quarto", -- you can set whatever filetype you want here
+        },
+      }
+    })
+  '';
+}
