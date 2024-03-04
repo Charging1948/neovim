@@ -7,8 +7,8 @@
         owner = "GCBallesteros";
         repo = "jupytext.nvim";
         rev = "68fddf28119dbaddfaea6b71f3d6aa1e081afb93";
-        sha256 = lib.fakeSha256;
-        # sha256 = "IrMR57gk9iCk73esHO24KZeep9VrlkV5sOC4PzGexyo=";
+        # sha256 = lib.fakeSha256;
+        sha256 = "x5emW+qfUTUDR72B9QdDgVdrb8wGH9D7AdtRrQm80sI=";
       };
       passthru.python3Dependencies = ps: with ps; [jupytext];
       meta.homepage = "https://github.com/GCBallesteros/jupytext.nvim";
