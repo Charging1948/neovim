@@ -7,6 +7,6 @@ with lib.plusultra; {
   extraPackages = with pkgs; [ueberzug];
   plugins.image = {
     enable = true;
-    backend = "ueberzug";
+    backend = "kitty";
   };
 }
