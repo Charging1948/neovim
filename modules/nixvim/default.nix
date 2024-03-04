@@ -95,6 +95,15 @@ with lib.plusultra; {
           desc = "Exit terminal mode";
         };
       }
+      {
+        mode = "n";
+        key = "<leader><leader>w";
+        action = "<cmd>:w<cr>";
+        options = {
+          silent = true;
+          desc = "Write current buffer";
+        };
+      }
     ];
 
     globals = {mapleader = " ";};
@@ -121,10 +130,8 @@ with lib.plusultra; {
       number = true;
       relativenumber = true;
 
-      scrolloff = 8;
-      sidescrolloff = 8;
-
-      foldlevelstart = 99;
+      scrolloff = 12;
+      sidescrolloff = 12;
     };
 
     luaLoader.enable = true;
