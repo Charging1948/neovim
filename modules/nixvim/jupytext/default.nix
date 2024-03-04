@@ -15,6 +15,8 @@
     })
   ];
 
+  extraPackages = with pkgs.python311Packages; [jupytext];
+
   extraConfigLuaPost = ''
     require('jupytext').setup({
       custom_language_formatting = {
