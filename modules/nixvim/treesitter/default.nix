@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 with lib.plusultra; {
   extraConfigLua = ''
     require("which-key").register({

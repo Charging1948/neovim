@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   plugins = {
     # null-ls has been forked to none-ls after the original author archived the project.
     none-ls = {

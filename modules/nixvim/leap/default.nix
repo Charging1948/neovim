@@ -1,1 +1,1 @@
-_: { plugins.leap.enable = true; }
+_: {plugins.leap.enable = true;}
