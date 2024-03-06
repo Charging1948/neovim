@@ -98,6 +98,7 @@ with lib.plusultra; {
         rnix-lsp.enable = true;
         prismals.enable = true;
         pylsp.enable = true;
+        ruff-lsp.enable = true;
         svelte.enable = true;
         taplo.enable = true;
         texlab.enable = true;
@@ -114,7 +115,7 @@ with lib.plusultra; {
         html.enable = true;
         jsonls.enable = true;
         lua-ls.enable = true;
-        # pyright.enable = true;
+        marksman.enable = true;
         rust-analyzer = {
           installCargo = true;
           installRustc = true;
@@ -142,6 +143,7 @@ with lib.plusultra; {
           };
         };
         yamlls.enable = true;
+        nushell.enable = true;
 
         nixd = {
           enable = true;
