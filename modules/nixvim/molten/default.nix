@@ -28,13 +28,23 @@
     settings = {image_provider = "image.nvim";};
   };
 
-  extraPackages = with pkgs.python311Packages; [
-    pynvim
-    jupyter-client
-    cairosvg
-    ipython
-    nbformat
-  ];
+  extraPython3Packages = ps:
+    with ps; [
+      pynvim
+      ipykernel
+      jupyter-client
+      cairosvg
+      ipython
+      nbformat
+    ];
+  # extraPackages = with pkgs.python311Packages; [
+  #   pynvim
+  #   ipykernel
+  #   jupyter-client
+  #   cairosvg
+  #   ipython
+  #   nbformat
+  # ];
 
   # extraConfigLuaPost = ''
   #   require('molten')
