@@ -15,4 +15,9 @@
   ];
 
   filetype = {extension.mdx = "markdown.mdx";};
+
+  extraFiles = {
+    "queries/markdown.mdx/injections.scm" = builtins.readFile ./injections.scm;
+    "queries/markdown.mdx/highlights.scm" = builtins.readFile ./highlights.scm;
+  };
 }
