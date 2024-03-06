@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  pyPacks = p: with p; [jupytext];
+in {
   extraPlugins = with pkgs; [
     (pkgs.vimUtils.buildVimPlugin {
       pname = "jupytext-nvim";
@@ -10,12 +12,12 @@
         # sha256 = lib.fakeSha256;
         sha256 = "x5emW+qfUTUDR72B9QdDgVdrb8wGH9D7AdtRrQm80sI=";
       };
-      passthru.python3Dependencies = ps: with ps; [jupytext];
+      passthru.python3Dependencies = pyPacks;
       meta.homepage = "https://github.com/GCBallesteros/jupytext.nvim";
     })
   ];
 
-  extraPackages = with pkgs.python311Packages; [jupytext];
+  extraPython3Packages = pyPacks;
 
   extraConfigLuaPost = ''
     require('jupytext').setup({

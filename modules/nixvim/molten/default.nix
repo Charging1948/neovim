@@ -2,7 +2,17 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  pyPacks = p:
+    with p; [
+      pynvim
+      jupyter-client
+      ipykernel
+      cairosvg
+      ipython
+      nbformat
+    ];
+in {
   plugins.molten = {
     enable = true;
     package = pkgs.vimUtils.buildVimPlugin {
@@ -15,38 +25,11 @@
         # sha256 = lib.fakeSha256;
         sha256 = "08f3zxzka43f87fks56594476h57yq01x7a1zdsn4acc278xg1nb";
       };
-      passthru.python3Dependencies = ps:
-        with ps; [
-          pynvim
-          jupyter-client
-          cairosvg
-          ipython
-          nbformat
-        ];
+      passthru.python3Dependencies = pyPacks;
       meta.homepage = "https://github.com/benlubas/molten-nvim/";
     };
     settings = {image_provider = "image.nvim";};
   };
 
-  extraPython3Packages = ps:
-    with ps; [
-      pynvim
-      ipykernel
-      jupyter-client
-      cairosvg
-      ipython
-      nbformat
-    ];
-  # extraPackages = with pkgs.python311Packages; [
-  #   pynvim
-  #   ipykernel
-  #   jupyter-client
-  #   cairosvg
-  #   ipython
-  #   nbformat
-  # ];
-
-  # extraConfigLuaPost = ''
-  #   require('molten')
-  # '';
+  extraPython3Packages = pyPacks;
 }
