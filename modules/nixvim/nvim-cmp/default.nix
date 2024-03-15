@@ -14,10 +14,10 @@
     cmp-calc.enable = true;
     cmp-pandoc-references.enable = true;
 
-    nvim-cmp = {
+    cmp = {
       enable = true;
 
-      snippet.expand = "luasnip";
+      settings.snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
 
       mappingPresets = ["insert"];
 
