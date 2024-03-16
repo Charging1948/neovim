@@ -69,12 +69,13 @@
           goimports.enable = true;
           golines.enable = true;
           google_java_format.enable = true;
+          leptosfmt.enable = true;
           just.enable = true;
           ktlint.enable = true;
           nixpkgs_fmt.enable = true;
+          nixfmt.enable = true;
           markdownlint.enable = true;
           mdformat.enable = true;
-          nginx_beautifier.enable = true;
           prismaFmt.enable = true;
           prettier.enable = true;
           prettier.disableTsServerFormatter = true;
