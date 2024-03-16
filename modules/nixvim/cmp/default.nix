@@ -4,24 +4,8 @@
   ...
 }: {
   plugins = {
-    # cmp-path.enable = true;
-    # cmp-nvim-lua.enable = true;
-    # cmp-nvim-lsp.enable = true;
-    # cmp-treesitter.enable = true;
-    # cmp-dap.enable = true;
-    # cmp-fuzzy-path.enable = true;
-    # cmp-nvim-lsp-signature-help.enable = true;
-    # cmp-latex-symbols.enable = true;
-    # cmp-emoji.enable = true;
-    # cmp-spell.enable = true;
-    # cmp-buffer.enable = true;
-    # cmp-calc.enable = true;
-    # cmp-pandoc-references.enable = true;
-
     cmp = {
       enable = true;
-
-      mappingPresets = ["insert"];
 
       settings = {
         completion.autocomplete = [
