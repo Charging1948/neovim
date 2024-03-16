@@ -97,7 +97,7 @@ with lib.plusultra; {
       }
       {
         mode = "n";
-        key = "<leader><leader>w";
+        key = "<leader>w";
         action = "<cmd>:w<cr>";
         options = {
           silent = true;
