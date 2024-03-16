@@ -16,32 +16,48 @@
         window.documentation.border = ["╭" "─" "╮" "│" "╯" "─" "╰" "│"];
       };
 
-      menu = {
-        nvim_lsp = "[LSP]";
-        nvim_lua = "[api]";
-        path = "[path]";
-        luasnip = "[snip]";
-        buffer = "[buffer]";
-        neorg = "[neorg]";
-        cmp_tabby = "[Tabby]";
-        nvim-lua = "[lua]";
-        nvim-lsp = "[LSP]";
-        treesitter = "[TS]";
-        dap = "[dap]";
-        fuzzy-path = "[path]";
-        nvim-lsp-signature-help = "[sig]";
-        latex-symbols = "[LaTeX]";
-        emoji = "[emoji]";
-        spell = "[spell]";
-        calc = "[calc]";
-        pandoc-references = "[pndc]";
-        otter = "[🦦]";
-      };
+      # menu = {
+      #   nvim_lsp = "[LSP]";
+      #   nvim_lua = "[api]";
+      #   path = "[path]";
+      #   luasnip = "[snip]";
+      #   buffer = "[buffer]";
+      #   neorg = "[neorg]";
+      #   cmp_tabby = "[Tabby]";
+      #   nvim-lua = "[lua]";
+      #   nvim-lsp = "[LSP]";
+      #   treesitter = "[TS]";
+      #   dap = "[dap]";
+      #   fuzzy-path = "[path]";
+      #   nvim-lsp-signature-help = "[sig]";
+      #   latex-symbols = "[LaTeX]";
+      #   emoji = "[emoji]";
+      #   spell = "[spell]";
+      #   calc = "[calc]";
+      #   pandoc-references = "[pndc]";
+      #   otter = "[🦦]";
+      # };
 
       filetype = {
         qmd.sources = [
           {
             name = "otter";
+            groupIndex = 1;
+            priority = 50;
+          }
+          {
+            name = "latex_symbols";
+            groupIndex = 1;
+          }
+          {
+            name = "pandoc_references";
+            groupIndex = 1;
+          }
+        ];
+
+        tex.sources = [
+          {
+            name = "latex_symbols";
             groupIndex = 1;
             priority = 50;
           }
@@ -56,62 +72,47 @@
         ];
       };
 
-      sources = [
+      settings.sources = [
+        {
+          name = "calc";
+          groupIndex = 1;
+        }
+        {
+          name = "treesitter";
+          groupIndex = 1;
+        }
         {
           name = "path";
           groupIndex = 1;
-          priority = 7;
         }
         {
           name = "luasnip";
           option = {show_autosnippets = true;};
           groupIndex = 1;
-          priority = 6;
         }
         {
           name = "copilot";
           groupIndex = 1;
-          priority = 5;
         }
         {
           name = "nvim_lsp";
           groupIndex = 1;
-          priority = 4;
         }
         {
           name = "nvim_lsp_signature_help";
           groupIndex = 1;
-          priority = 3;
-        }
-        {
-          name = "pandoc_references";
-          groupIndex = 1;
-          priority = 2;
-        }
-        {
-          name = "treesitter";
-          groupIndex = 1;
-          priority = 8;
         }
         {
           name = "spell";
           groupIndex = 2;
-          priority = 5;
-        }
-        {
-          name = "calc";
-          groupIndex = 2;
-          priority = 4;
-        }
-        {
-          name = "latex_symbols";
-          groupIndex = 2;
-          priority = 3;
         }
         {
           name = "emoji";
           groupIndex = 2;
-          priority = 2;
+        }
+        {
+          name = "rg";
+          groupIndex = 2;
         }
         {
           name = "buffer";
@@ -119,6 +120,7 @@
           priority = 1;
           # Words from other open buffers can also be suggested.
           option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+          keyword_length = 5;
         }
       ];
 
