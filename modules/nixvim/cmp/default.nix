@@ -2,7 +2,9 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+with lib;
+with lib.plusultra; {
   plugins = {
     cmp = {
       enable = true;
@@ -15,28 +17,6 @@
         snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
         window.documentation.border = ["╭" "─" "╮" "│" "╯" "─" "╰" "│"];
       };
-
-      # menu = {
-      #   nvim_lsp = "[LSP]";
-      #   nvim_lua = "[api]";
-      #   path = "[path]";
-      #   luasnip = "[snip]";
-      #   buffer = "[buffer]";
-      #   neorg = "[neorg]";
-      #   cmp_tabby = "[Tabby]";
-      #   nvim-lua = "[lua]";
-      #   nvim-lsp = "[LSP]";
-      #   treesitter = "[TS]";
-      #   dap = "[dap]";
-      #   fuzzy-path = "[path]";
-      #   nvim-lsp-signature-help = "[sig]";
-      #   latex-symbols = "[LaTeX]";
-      #   emoji = "[emoji]";
-      #   spell = "[spell]";
-      #   calc = "[calc]";
-      #   pandoc-references = "[pndc]";
-      #   otter = "[🦦]";
-      # };
 
       filetype = {
         qmd.sources = [
@@ -124,42 +104,42 @@
         }
       ];
 
-      settings.mapping = {
-        "<C-Space>" = "cmp.mapping.complete()";
-        "<C-j>" = "cmp.mapping.scroll_docs(4)";
-        "<C-k>" = "cmp.mapping.scroll_docs(-4)";
-        "<C-l>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
-        "<C-n>" = {
-          action = ''
-            function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif require("luasnip").expand_or_jumpable() then
-                require("luasnip").expand_or_jump()
-              else
-                fallback()
-              end
-            end
-          '';
+      settings.mapping = lua.mkRaw ''
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-j>"] = cmp.mapping.scroll_docs(4),
+        ["<C-k>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-l>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+        ["<C-n>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
 
-          modes = ["i" "s"];
-        };
-        "<C-p>" = {
-          action = ''
-            function(fallback)
-              if cmp.visible() then
-                cmp.select_prev_item()
-              elseif require("luasnip").expand_or_jumpable() then
-                require("luasnip").expand_or_jump()
-              else
-                fallback()
-              end
-            end
-          '';
-
-          modes = ["i" "s"];
-        };
-      };
+        ["<C-p>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+      '';
     };
   };
+
+  extraConfigLuaPost = ''
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+    local cmp = require('cmp')
+    cmp.event:on(
+      'confirm_done',
+      cmp_autopairs.on_confirm_done()
+    )
+  '';
 }
