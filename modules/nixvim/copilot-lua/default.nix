@@ -26,7 +26,7 @@ with lib.plusultra; {
   ];
 
   plugins = {
-    copilot-cmp.enable = lib.mkIf config.plugins.nvim-cmp.enable true;
+    copilot-cmp.enable = true;
     copilot-lua = {
       enable = true;
 

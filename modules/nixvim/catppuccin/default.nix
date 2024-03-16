@@ -9,7 +9,7 @@
     dimInactive.enabled = true;
     integrations = {
       alpha = config.plugins.alpha.enable;
-      cmp = config.plugins.nvim-cmp.enable;
+      cmp = config.plugins.cmp.enable;
 
       dap.enabled = config.plugins.dap.enable;
       dap.enable_ui = config.plugins.dap.enable;
