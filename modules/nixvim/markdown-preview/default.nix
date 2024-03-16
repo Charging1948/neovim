@@ -15,7 +15,7 @@ with lib.plusultra; {
   plugins = {
     markdown-preview = {
       enable = true;
-      autoClose = false;
+      settings.auto_close = false;
     };
   };
 }
