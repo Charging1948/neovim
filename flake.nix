@@ -26,11 +26,12 @@
 
       src = ./.;
 
-      snowfall = {
-        namespace = "plusultra";
-      };
+      snowfall = {namespace = "plusultra";};
 
-      channels-config.allowUnfree = true;
+      channels-config = {
+        allowUnfree = true;
+        permittedInsecurePackages = ["nix-2.16.2"];
+      };
 
       alias.packages.default = "neovim";
 
@@ -39,9 +40,7 @@
 
         checks.pre-commit-check = inputs.pre-commit-hooks.lib.${channels.nixpkgs.system}.run {
           src = ./.;
-          hooks = {
-            alejandra.enable = true;
-          };
+          hooks = {alejandra.enable = true;};
         };
       };
     };
