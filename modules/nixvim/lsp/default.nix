@@ -145,13 +145,13 @@ with lib.plusultra; {
         yamlls.enable = true;
         nushell.enable = true;
 
-        nixd = {
-          enable = true;
+        # nixd = {
+        #   enable = true;
 
-          settings = {
-            formatting.command = "${pkgs.alejandra}/bin/alejandra";
-          };
-        };
+        #   settings = {
+        #     formatting.command = "${pkgs.alejandra}/bin/alejandra";
+        #   };
+        # };
       };
     };
   };
