@@ -8,7 +8,7 @@
       toggleQuickMenu = "<C-e>";
       navNext = "<leader>hn";
       navPrev = "<leader>hp";
-      tmuxGoToTerminal = {
+      tmuxGotoTerminal = {
         "1" = "<C-1>";
         "2" = "<C-2>";
       };
