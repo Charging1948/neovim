@@ -7,7 +7,7 @@ _: {
   keymaps = [
     {
       mode = "n";
-      keys = "<leader>nb";
+      key = "<leader>nb";
       action = "<Cmd>:Navbuddy<CR>";
     }
   ];
