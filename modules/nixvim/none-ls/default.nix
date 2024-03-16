@@ -85,7 +85,7 @@
           stylua.enable = true;
           typstfmt.enable = true;
           yamlfmt.enable = true;
-          yamlfix.enable = true;
+          # yamlfix.enable = true;
         };
       };
     };
