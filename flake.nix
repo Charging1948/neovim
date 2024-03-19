@@ -28,10 +28,7 @@
 
       snowfall = {namespace = "plusultra";};
 
-      channels-config = {
-        allowUnfree = true;
-        permittedInsecurePackages = ["nix-2.16.2"];
-      };
+      channels-config = {allowUnfree = true;};
 
       alias.packages.default = "neovim";
 

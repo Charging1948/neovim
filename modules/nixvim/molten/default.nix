@@ -1,8 +1,5 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs, lib, ... }:
+let
   pyPacks = p:
     with p; [
       pynvim
@@ -12,7 +9,8 @@
       ipython
       nbformat
     ];
-in {
+in
+{
   plugins.molten = {
     enable = true;
     package = pkgs.vimUtils.buildVimPlugin {
@@ -28,7 +26,7 @@ in {
       passthru.python3Dependencies = pyPacks;
       meta.homepage = "https://github.com/benlubas/molten-nvim/";
     };
-    settings = {image_provider = "image.nvim";};
+    settings = { image_provider = "image.nvim"; };
   };
 
   extraPython3Packages = pyPacks;
