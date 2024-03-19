@@ -9,6 +9,8 @@ let
       ipython
       nbformat
     ];
+
+  default_opts = { silent = true; };
 in
 {
   plugins.molten = {
@@ -30,4 +32,62 @@ in
   };
 
   extraPython3Packages = pyPacks;
+
+  keymaps = [{
+    key = "<leader>mi";
+    action = "<cmd>:MoltenInit<CR>";
+    mode = "n";
+    options = {
+      desc = "Initialize Molten for current buffer";
+    } // default_opts;
+  }];
+
+  keymapsOnEvents = {
+    MoltenInitPost = [
+      {
+        key = "<localleader>mo";
+        action = "<cmd>:MoltenEvaluateOperator<CR>";
+        options = { desc = "[m]olten - evaluate [o]perator"; } // default_opts;
+        mode = "n";
+      }
+      {
+        key = "<localleader>ml";
+        action = "<cmd>:MoltenEvaluateLine<CR>";
+        options = { desc = "[m]olten - evaluate [l]ine"; } // default_opts;
+        mode = "n";
+      }
+      {
+        key = "<localleader>mc";
+        action = "<cmd>:MoltenReevaluateCell<CR>";
+        options = { desc = "[m]olten - evaluate [c]ell"; } // default_opts;
+        mode = "n";
+      }
+      {
+        key = "<localleader>me";
+        action = "<cmd>:<C-u>MoltenEvaluateVisual<CR>gv";
+        options = {
+          desc = "[m]olten - [e]valuate visual selection";
+        } // default_opts;
+        mode = "v";
+      }
+      {
+        key = "<localleader>md";
+        action = "<cmd>:MoltenDelete<CR>";
+        options = { desc = "[m]olten - [d]elete cell"; } // default_opts;
+        mode = "n";
+      }
+      {
+        key = "<localleader>mh";
+        action = "<cmd>:MoltenHideOutput<CR>";
+        options = { desc = "[m]olten - [h]ide output"; } // default_opts;
+        mode = "n";
+      }
+      {
+        key = "<localleader>ms";
+        action = "<cmd>:noautocmd MoltenHideOutput<CR>";
+        options = { desc = "[m]olten - [s]how/enter output"; } // default_opts;
+        mode = "n";
+      }
+    ];
+  };
 }
