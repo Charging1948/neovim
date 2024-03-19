@@ -1,25 +1,15 @@
-{
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
+with lib;
 with lib.plusultra; {
-  extraPlugins = with pkgs.vimPlugins; [
-    twilight-nvim
-  ];
+  plugins.twilight.enable = true;
 
-  extraConfigLua =
-    /*
-    lua
-    */
-    ''
-      require("twilight").setup({})
-
-      require("which-key").register({
-        t = {
-          name = "Toggle",
-          T = { "<cmd>Twilight<cr>", "Toggle twilight" }
-        },
-      }, { mode = "n", prefix = "<leader>", silent = true })
-    '';
+  keymaps = [{
+    action = "<cmd>:Twilight<CR>";
+    key = "<leader>tT";
+    options = {
+      desc = "Toggle twilight";
+      silent = true;
+    };
+    mode = "n";
+  }];
 }
