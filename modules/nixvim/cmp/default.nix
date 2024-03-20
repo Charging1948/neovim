@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 with lib;
 with lib.plusultra; {
   plugins = {
@@ -14,17 +10,18 @@ with lib.plusultra; {
           "require('cmp.types').cmp.TriggerEvent.InsertEnter"
           "require('cmp.types').cmp.TriggerEvent.TextChanged"
         ];
-        snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
-        window.documentation.border = ["╭" "─" "╮" "│" "╯" "─" "╰" "│"];
+        snippet.expand =
+          "function(args) require('luasnip').lsp_expand(args.body) end";
+        window.documentation.border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
       };
 
       filetype = {
         qmd.sources = [
-          {
-            name = "otter";
-            groupIndex = 1;
-            priority = 50;
-          }
+          # {
+          #   name = "otter";
+          #   groupIndex = 1;
+          #   priority = 50;
+          # }
           {
             name = "latex_symbols";
             groupIndex = 1;
@@ -35,21 +32,17 @@ with lib.plusultra; {
           }
         ];
 
-        tex.sources = [
-          {
-            name = "latex_symbols";
-            groupIndex = 1;
-            priority = 50;
-          }
-        ];
+        tex.sources = [{
+          name = "latex_symbols";
+          groupIndex = 1;
+          priority = 50;
+        }];
 
-        neorg.sources = [
-          {
-            name = "neorg";
-            groupIndex = 1;
-            priority = 50;
-          }
-        ];
+        # neorg.sources = [{
+        #   name = "neorg";
+        #   groupIndex = 1;
+        #   priority = 50;
+        # }];
       };
 
       settings.sources = [
@@ -67,7 +60,7 @@ with lib.plusultra; {
         }
         {
           name = "luasnip";
-          option = {show_autosnippets = true;};
+          option = { show_autosnippets = true; };
           groupIndex = 1;
         }
         {
