@@ -1,4 +1,6 @@
 { pkgs, lib, ... }:
+with lib;
+with lib.plusultra;
 let
   pyPacks = p:
     with p; [
@@ -9,8 +11,57 @@ let
       ipython
       nbformat
     ];
+  default_opts = {
+    buffer = true;
+    silent = true;
+  };
 
-  default_opts = { silent = true; };
+  buffer_keymaps = [
+    {
+      key = "<localleader>mo";
+      action = "<cmd>:MoltenEvaluateOperator<CR>";
+      options = { desc = "[m]olten - evaluate [o]perator"; } // default_opts;
+      mode = "n";
+    }
+    {
+      key = "<localleader>ml";
+      action = "<cmd>:MoltenEvaluateLine<CR>";
+      options = { desc = "[m]olten - evaluate [l]ine"; } // default_opts;
+      mode = "n";
+    }
+    {
+      key = "<localleader>mc";
+      action = "<cmd>:MoltenReevaluateCell<CR>";
+      options = { desc = "[m]olten - evaluate [c]ell"; } // default_opts;
+      mode = "n";
+    }
+    {
+      key = "<localleader>me";
+      action = "<cmd>:<C-u>MoltenEvaluateVisual<CR>gv";
+      options = {
+        desc = "[m]olten - [e]valuate visual selection";
+      } // default_opts;
+      mode = "v";
+    }
+    {
+      key = "<localleader>md";
+      action = "<cmd>:MoltenDelete<CR>";
+      options = { desc = "[m]olten - [d]elete cell"; } // default_opts;
+      mode = "n";
+    }
+    {
+      key = "<localleader>mh";
+      action = "<cmd>:MoltenHideOutput<CR>";
+      options = { desc = "[m]olten - [h]ide output"; } // default_opts;
+      mode = "n";
+    }
+    {
+      key = "<localleader>ms";
+      action = "<cmd>:noautocmd MoltenHideOutput<CR>";
+      options = { desc = "[m]olten - [s]how/enter output"; } // default_opts;
+      mode = "n";
+    }
+  ];
 in
 {
   plugins.molten = {
@@ -39,55 +90,16 @@ in
     mode = "n";
     options = {
       desc = "Initialize Molten for current buffer";
-    } // default_opts;
+      silent = true;
+    };
   }];
 
-  keymapsOnEvents = {
-    MoltenInitPost = [
-      {
-        key = "<localleader>mo";
-        action = "<cmd>:MoltenEvaluateOperator<CR>";
-        options = { desc = "[m]olten - evaluate [o]perator"; } // default_opts;
-        mode = "n";
-      }
-      {
-        key = "<localleader>ml";
-        action = "<cmd>:MoltenEvaluateLine<CR>";
-        options = { desc = "[m]olten - evaluate [l]ine"; } // default_opts;
-        mode = "n";
-      }
-      {
-        key = "<localleader>mc";
-        action = "<cmd>:MoltenReevaluateCell<CR>";
-        options = { desc = "[m]olten - evaluate [c]ell"; } // default_opts;
-        mode = "n";
-      }
-      {
-        key = "<localleader>me";
-        action = "<cmd>:<C-u>MoltenEvaluateVisual<CR>gv";
-        options = {
-          desc = "[m]olten - [e]valuate visual selection";
-        } // default_opts;
-        mode = "v";
-      }
-      {
-        key = "<localleader>md";
-        action = "<cmd>:MoltenDelete<CR>";
-        options = { desc = "[m]olten - [d]elete cell"; } // default_opts;
-        mode = "n";
-      }
-      {
-        key = "<localleader>mh";
-        action = "<cmd>:MoltenHideOutput<CR>";
-        options = { desc = "[m]olten - [h]ide output"; } // default_opts;
-        mode = "n";
-      }
-      {
-        key = "<localleader>ms";
-        action = "<cmd>:noautocmd MoltenHideOutput<CR>";
-        options = { desc = "[m]olten - [s]how/enter output"; } // default_opts;
-        mode = "n";
-      }
-    ];
-  };
+  extraConfigLuaPost = ''
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "MoltenInitPost",
+      callback = function()
+        ${toString (map (x: keymaps.fromNixvim x) buffer_keymaps)}
+      end,
+    })
+  '';
 }
