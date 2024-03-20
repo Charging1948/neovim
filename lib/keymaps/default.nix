@@ -1,5 +1,5 @@
 _: {
-  keymaps = {
+  keymaps = rec {
     fromNixvim = keymap:
       let
         opts_list = builtins.attrValues
@@ -11,5 +11,6 @@ _: {
         vim.keymap.set("${keymap.mode}", "${keymap.key}", "${keymap.action}",
           { ${opts_string} })
       '';
+    fromNixvimList = keymaps: toString (map (x: fromNixvim x) keymaps);
   };
 }

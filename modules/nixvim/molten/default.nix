@@ -36,10 +36,10 @@ let
       mode = "n";
     }
     {
-      key = "<localleader>me";
-      action = "<cmd>:<C-u>MoltenEvaluateVisual<CR>gv";
+      key = "<localleader>m";
+      action = ":<C-u>MoltenEvaluateVisual<CR>gv";
       options = {
-        desc = "[m]olten - [e]valuate visual selection";
+        desc = "[m]olten - evaluate visual selection";
       } // default_opts;
       mode = "v";
     }
