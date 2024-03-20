@@ -1,9 +1,4 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}:
+{ lib, config, pkgs, ... }:
 with lib.plusultra; {
   config = {
     extraConfigLua = ''
@@ -106,9 +101,12 @@ with lib.plusultra; {
       }
     ];
 
-    globals = {mapleader = " ";};
+    globals = {
+      mapleader = " ";
+      maplocalleader = " ";
+    };
 
-    extraPackages = with pkgs; [ripgrep fd];
+    extraPackages = with pkgs; [ ripgrep fd ];
 
     clipboard = {
       register = "unnamedplus";
@@ -136,12 +134,10 @@ with lib.plusultra; {
 
     luaLoader.enable = true;
 
-    autoCmd = [
-      {
-        event = ["BufRead" "BufNewFile"];
-        pattern = ["*.txt" "*.md" "*.tex"];
-        command = "setlocal spell";
-      }
-    ];
+    autoCmd = [{
+      event = [ "BufRead" "BufNewFile" ];
+      pattern = [ "*.txt" "*.md" "*.tex" ];
+      command = "setlocal spell";
+    }];
   };
 }
