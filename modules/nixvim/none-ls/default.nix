@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-  extraPackages = with pkgs; [ rnix-lsp ];
   plugins = {
     # null-ls has been forked to none-ls after the original author archived the project.
     none-ls = {
