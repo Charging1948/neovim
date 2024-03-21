@@ -1,1 +1,1 @@
-{...}: {plugins = {commentary = {enable = true;};};}
+{ ... }: { plugins = { commentary = { enable = true; }; }; }

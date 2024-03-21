@@ -1,14 +1,10 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{ pkgs, ... }: {
+  extraPackages = with pkgs; [ rnix-lsp ];
   plugins = {
     # null-ls has been forked to none-ls after the original author archived the project.
     none-ls = {
       enable = true;
       enableLspFormat = true;
-      # TODO: Find replacements for still commented out plugins
       sources = {
         code_actions = {
           gitsigns.enable = true;
