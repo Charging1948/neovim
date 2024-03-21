@@ -70,7 +70,7 @@ with lib.plusultra; {
       servers = {
         astro.enable = true;
         bashls.enable = true;
-        clojure.enable = true;
+        clojure-lsp.enable = true;
         cssls.enable = true;
         dartls.enable = true;
         denols.enable = true;
