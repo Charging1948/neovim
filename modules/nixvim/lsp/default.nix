@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 with lib.plusultra; {
   plugins = {
     lspkind = {
@@ -74,54 +70,66 @@ with lib.plusultra; {
       servers = {
         astro.enable = true;
         bashls.enable = true;
+        clojure.enable = true;
         cssls.enable = true;
+        dartls.enable = true;
+        denols.enable = true;
+        dockerls.enable = true;
         elixirls.enable = true;
+        elmls.enable = true;
         emmet_ls.enable = true;
+        eslint = {
+          enable = true;
+          extraOptions.settings.autoFixOnSave = true;
+        };
+        gleam.enable = true;
+        graphql.enable = true;
+        gopls.enable = true;
         hls.enable = true;
+        html.enable = true;
+        htmx.enable = true;
         java-language-server.enable = true;
+        jsonls.enable = true;
         kotlin-language-server.enable = true;
         leanls.enable = true;
+        lua-ls.enable = true;
         ltex.enable = true;
-        # Add neorg to enabled filetypes for ltex
-        ltex.settings.enabled = [
-          "bibtex"
-          "context"
-          "context.tex"
-          "html"
-          "latex"
-          "markdown"
-          "org"
-          "restructuredtext"
-          "rsweave"
-          "neorg"
-        ];
-        rnix-lsp.enable = true;
+        ltex.settings = {
+          checkFrequency = "save";
+          enabled = [
+            "bibtex"
+            "context"
+            "context.tex"
+            "html"
+            "latex"
+            "markdown"
+            "org"
+            "restructuredtext"
+            "rsweave"
+            "neorg"
+          ];
+          statusBarItem = true;
+        };
+        marksman.enable = true;
+        nushell.enable = true;
         prismals.enable = true;
         pylsp.enable = true;
         ruff-lsp.enable = true;
-        svelte.enable = true;
-        taplo.enable = true;
-        texlab.enable = true;
-        typst-lsp.enable = true;
-        volar.enable = true;
-        zls.enable = true;
-
-        eslint = {
-          enable = true;
-
-          extraOptions = {settings = {autoFixOnSave = true;};};
-        };
-        gopls.enable = true;
-        html.enable = true;
-        jsonls.enable = true;
-        lua-ls.enable = true;
-        marksman.enable = true;
         rust-analyzer = {
           installCargo = true;
           installRustc = true;
           enable = true;
         };
+        svelte.enable = true;
         tailwindcss.enable = true;
+        taplo.enable = true;
+        terraform.enable = true;
+        texlab.enable = true;
+        typst-lsp.enable = true;
+        volar.enable = true;
+        yamlls.enable = true;
+        zls.enable = true;
+
         tsserver = {
           enable = true;
 
@@ -142,16 +150,6 @@ with lib.plusultra; {
             };
           };
         };
-        yamlls.enable = true;
-        nushell.enable = true;
-
-        # nixd = {
-        #   enable = true;
-
-        #   settings = {
-        #     formatting.command = "${pkgs.alejandra}/bin/alejandra";
-        #   };
-        # };
       };
     };
   };
