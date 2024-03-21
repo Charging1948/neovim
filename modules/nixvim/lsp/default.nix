@@ -68,7 +68,7 @@ with lib.plusultra; {
       '';
 
       servers = {
-        ansible.enable = true;
+        ansiblels.enable = true;
         astro.enable = true;
         bashls.enable = true;
         clojure-lsp.enable = true;
