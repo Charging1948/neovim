@@ -124,7 +124,7 @@ with lib.plusultra; {
         svelte.enable = true;
         tailwindcss.enable = true;
         taplo.enable = true;
-        terraform.enable = true;
+        terraformls.enable = true;
         texlab.enable = true;
         typst-lsp.enable = true;
         volar.enable = true;
