@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{ lib, config, ... }: {
   colorschemes.catppuccin = {
     enable = true;
     background.dark = "mocha";
