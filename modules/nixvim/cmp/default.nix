@@ -6,37 +6,20 @@ with lib.plusultra; {
       enable = true;
 
       settings = {
-        completion.autocomplete = [
-          "require('cmp.types').cmp.TriggerEvent.InsertEnter"
-          "require('cmp.types').cmp.TriggerEvent.TextChanged"
-        ];
         snippet.expand =
           "function(args) require('luasnip').lsp_expand(args.body) end";
         window.documentation.border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
+        window.completion.border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
       };
 
       filetype = {
         qmd.sources = [
-          # {
-          #   name = "otter";
-          #   groupIndex = 1;
-          #   priority = 50;
-          # }
-          {
-            name = "latex_symbols";
-            groupIndex = 1;
-          }
-          {
-            name = "pandoc_references";
-            groupIndex = 1;
-          }
+          { name = "otter"; }
+          { name = "latex_symbols"; }
+          { name = "pandoc_references"; }
         ];
 
-        tex.sources = [{
-          name = "latex_symbols";
-          groupIndex = 1;
-          priority = 50;
-        }];
+        tex.sources = [{ name = "latex_symbols"; }];
 
         # neorg.sources = [{
         #   name = "neorg";
@@ -46,108 +29,44 @@ with lib.plusultra; {
       };
 
       settings.sources = [
-        {
-          name = "calc";
-          groupIndex = 1;
-        }
-        {
-          name = "treesitter";
-          groupIndex = 1;
-        }
-        {
-          name = "path";
-          groupIndex = 1;
-        }
+        # { name = "calc"; }
+        { name = "treesitter"; }
+        { name = "path"; }
         {
           name = "luasnip";
           option = { show_autosnippets = true; };
-          groupIndex = 1;
         }
-        {
-          name = "copilot";
-          groupIndex = 1;
-        }
-        {
-          name = "nvim_lsp";
-          groupIndex = 1;
-        }
+        { name = "copilot"; }
+        { name = "nvim_lsp"; }
         {
           name = "nvim_lsp_signature_help";
-          groupIndex = 1;
         }
-        {
-          name = "spell";
-          groupIndex = 2;
-        }
+        # { name = "spell"; }
         {
           name = "emoji";
-          groupIndex = 2;
         }
-        {
-          name = "rg";
-          groupIndex = 2;
-        }
+        # { name = "rg"; }
         {
           name = "buffer";
-          groupIndex = 2;
-          priority = 1;
-          # Words from other open buffers can also be suggested.
           option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
           keyword_length = 5;
         }
       ];
 
-      settings.mapping = {
-        "<C-Space>" = "cmp.mapping.complete()";
-        "<C-j>" = "cmp.mapping.scroll_docs(4)";
-        "<C-k>" = "cmp.mapping.scroll_docs(-4)";
-        "<C-l>" =
-          "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
-        "<C-n>" = ''
-          cmp.mapping(function(fallback)
-            local has_words_before = function()
-              unpack = unpack or table.unpack
-              local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-              return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-            end
+      # settings.mapping = {
+      #   "<C-Space>" = "cmp.mapping.complete()";
+      #   "<C-j>" = "cmp.mapping.scroll_docs(4)";
+      #   "<C-k>" = "cmp.mapping.scroll_docs(-4)";
+      #   "<C-l>" =
+      #     "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+      #   "<C-n>" = ''
+      #     cmp.mapping(function(fallback)
+      #       local has_words_before = function()
+      #         unpack = unpack or table.unpack
+      #         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      #         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      #       end
 
-            local luasnip = require("luasnip")
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            elseif has_words_before() then
-              cmp.complete()
-            else
-              fallback()
-            end
-          end, { "i", "s" })'';
-
-        "<C-p>" = ''
-          cmp.mapping(function(fallback)
-            local has_words_before = function()
-              unpack = unpack or table.unpack
-              local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-              return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-            end
-
-            local luasnip = require("luasnip")
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { "i", "s" })'';
-      };
-      # settings.mapping = lua.mkRaw ''
-      #   cmp.mapping.preset.insert({
-      #     ["<C-Space>"] = cmp.mapping.complete(),
-      #     ["<C-j>"] = cmp.mapping.scroll_docs(4),
-      #     ["<C-k>"] = cmp.mapping.scroll_docs(-4),
-      #     ["<C-l>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-      #     ["<C-n>"] = cmp.mapping(function(fallback)
       #       local luasnip = require("luasnip")
       #       if cmp.visible() then
       #         cmp.select_next_item()
@@ -158,9 +77,16 @@ with lib.plusultra; {
       #       else
       #         fallback()
       #       end
-      #     end, { "i", "s" }),
+      #     end, { "i", "s" })'';
 
-      #     ["<C-p>"] = cmp.mapping(function(fallback)
+      #   "<C-p>" = ''
+      #     cmp.mapping(function(fallback)
+      #       local has_words_before = function()
+      #         unpack = unpack or table.unpack
+      #         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      #         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      #       end
+
       #       local luasnip = require("luasnip")
       #       if cmp.visible() then
       #         cmp.select_prev_item()
@@ -169,9 +95,39 @@ with lib.plusultra; {
       #       else
       #         fallback()
       #       end
-      #     end, { "i", "s" }),
-      #   })
-      # '';
+      #     end, { "i", "s" })'';
+      # };
+      settings.mapping = lua.mkRaw ''
+        cmp.mapping.preset.insert({
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-j>"] = cmp.mapping.scroll_docs(4),
+          ["<C-k>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-l>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+          ["<C-n>"] = cmp.mapping(function(fallback)
+            local luasnip = require("luasnip")
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            elseif has_words_before() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+
+          ["<C-p>"] = cmp.mapping(function(fallback)
+            local luasnip = require("luasnip")
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+        })
+      '';
     };
   };
 
