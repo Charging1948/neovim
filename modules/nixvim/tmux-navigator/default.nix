@@ -1,7 +1,5 @@
-{...}: {
-  globals = {
-    tmux_navigator_no_mappings = 1;
-  };
+{ ... }: {
+  globals = { tmux_navigator_no_mappings = 1; };
 
   keymaps = [
     {
@@ -46,8 +44,10 @@
     tmux-navigator = {
       enable = true;
 
-      tmuxNavigatorNoWrap = 1;
-      tmuxNavigatorDisableWhenZoomed = 1;
+      settings = {
+        no_wrap = true;
+        disable_when_zoomed = true;
+      };
     };
   };
 }
