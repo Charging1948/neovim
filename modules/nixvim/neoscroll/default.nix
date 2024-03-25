@@ -1,8 +1,1 @@
-{...}: {
-  # TODO: Add back in, when available
-  # plugins = {
-  #   neoscroll = {
-  #     enable = true;
-  #   };
-  # };
-}
+_: { plugins = { neoscroll = { enable = true; }; }; }
