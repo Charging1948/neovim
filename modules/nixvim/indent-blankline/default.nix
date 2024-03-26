@@ -14,13 +14,15 @@ _: {
 
         enable = true;
 
-        scope = {
-          enabled = true;
-          showStart = true;
-        };
-        exclude = {
-          buftypes = ["terminal" "nofile"];
-          filetypes = ["help" "dashboard" "NvimTree" "Trouble"];
+        settings = {
+          scope = {
+            enabled = true;
+            show_start = true;
+          };
+          exclude = {
+            buftypes = [ "terminal" "nofile" ];
+            filetypes = [ "help" "dashboard" "NvimTree" "Trouble" ];
+          };
         };
       };
     };
