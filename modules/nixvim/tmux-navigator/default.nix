@@ -1,5 +1,5 @@
-{ ... }: {
-  globals = { tmux_navigator_no_mappings = 1; };
+{ lib, ... }: {
+  globals = { tmux_navigator_no_mappings = lib.mkForce true; };
 
   keymaps = [
     {
