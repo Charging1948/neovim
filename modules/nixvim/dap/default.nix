@@ -4,10 +4,12 @@
       enable = true;
 
       extensions = {
-        dap-ui.enable = true;
         dap-go.enable = true;
         dap-python.enable = true;
-        dap-virtual-text.enable = true;
+
+        # TODO: Re-enable once issue with dap-nio dependency is resolved
+        dap-ui.enable = false;
+        dap-virtual-text.enable = false;
       };
     };
   };
