@@ -19,7 +19,7 @@
             untracked.text = "┆";
           };
 
-          on_attach.function = ''
+          on_attach = ''
             function(bufnr)
               local which_key = require("which-key")
               local gitsigns = require("gitsigns")
