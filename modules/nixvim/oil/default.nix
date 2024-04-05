@@ -24,11 +24,7 @@ with lib.plusultra; {
 
   plugins.oil = {
     enable = true;
-    viewOptions.showHidden = true;
-    columns = {
-      icon.enable = true;
-      permissions.enable = true;
-      type.enable = true;
-    };
+    view_options.show_hidden = true;
+    settings.columns = [ "icon" "permissions" ];
   };
 }

@@ -1,6 +1,6 @@
 _: {
   config = {
-    options = {
+    opts = {
       list = true;
       listchars = "eol:↴,nbsp:↲,space: ,tab: ,trail:-";
     };

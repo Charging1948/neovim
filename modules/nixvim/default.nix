@@ -116,7 +116,7 @@ with lib.plusultra; {
       };
     };
 
-    options = {
+    opts = {
       autoindent = true;
       cursorline = true;
       tabstop = 2;
@@ -124,12 +124,12 @@ with lib.plusultra; {
       wrap = true;
       linebreak = true;
 
-      mouse = "";
+      mouse = "a";
       number = true;
       relativenumber = true;
 
       scrolloff = 12;
-      sidescrolloff = 12;
+      sidescrolloff = 8;
     };
 
     luaLoader.enable = true;
