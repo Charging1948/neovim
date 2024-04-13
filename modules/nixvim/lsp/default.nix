@@ -68,31 +68,22 @@ with lib.plusultra; {
       '';
 
       servers = {
-        ansiblels.enable = true;
         astro.enable = true;
         bashls.enable = true;
-        clojure-lsp.enable = true;
         cssls.enable = true;
-        dartls.enable = true;
-        denols.enable = true;
         dockerls.enable = true;
-        elixirls.enable = true;
-        elmls.enable = true;
         emmet_ls.enable = true;
         eslint = {
           enable = true;
           extraOptions.settings.autoFixOnSave = true;
         };
         gleam.enable = true;
-        graphql.enable = true;
         gopls.enable = true;
         hls.enable = true;
         html.enable = true;
         htmx.enable = true;
-        java-language-server.enable = true;
         jsonls.enable = true;
         kotlin-language-server.enable = true;
-        leanls.enable = true;
         lua-ls.enable = true;
         ltex.enable = true;
         ltex.settings = {
@@ -116,20 +107,13 @@ with lib.plusultra; {
         prismals.enable = true;
         pylsp.enable = true;
         ruff-lsp.enable = true;
-        rust-analyzer = {
-          installCargo = true;
-          installRustc = true;
-          enable = true;
-        };
         svelte.enable = true;
         tailwindcss.enable = true;
         taplo.enable = true;
-        terraformls.enable = true;
         texlab.enable = true;
         typst-lsp.enable = true;
         volar.enable = true;
         yamlls.enable = true;
-        zls.enable = true;
 
         tsserver = {
           enable = true;
