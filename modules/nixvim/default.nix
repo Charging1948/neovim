@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 with lib.plusultra; {
   config = {
     extraConfigLua = ''
@@ -106,7 +111,7 @@ with lib.plusultra; {
       maplocalleader = " ";
     };
 
-    extraPackages = with pkgs; [ ripgrep fd ];
+    extraPackages = with pkgs; [ripgrep fd];
 
     clipboard = {
       register = "unnamedplus";
@@ -130,14 +135,17 @@ with lib.plusultra; {
 
       scrolloff = 12;
       sidescrolloff = 8;
+      foldlevelstart = 99;
     };
 
     luaLoader.enable = true;
 
-    autoCmd = [{
-      event = [ "BufRead" "BufNewFile" ];
-      pattern = [ "*.txt" "*.md" "*.tex" ];
-      command = "setlocal spell";
-    }];
+    autoCmd = [
+      {
+        event = ["BufRead" "BufNewFile"];
+        pattern = ["*.txt" "*.md" "*.tex"];
+        command = "setlocal spell";
+      }
+    ];
   };
 }

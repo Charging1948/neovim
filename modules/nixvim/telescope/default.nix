@@ -66,7 +66,6 @@ with lib.plusultra; {
       enable = true;
       extensions = {
         file_browser.enable = true;
-        frecency.enable = true;
         fzf-native.enable = true;
         media_files.enable = true;
         ui-select.enable = true;
