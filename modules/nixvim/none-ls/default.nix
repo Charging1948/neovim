@@ -1,6 +1,5 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   plugins = {
-    # null-ls has been forked to none-ls after the original author archived the project.
     none-ls = {
       enable = true;
       enableLspFormat = true;
@@ -48,6 +47,7 @@
           alejandra.enable = true;
           blackd.enable = true;
           isort.enable = true;
+          gleam_format.enable = true;
           gofumpt.enable = true;
           goimports_reviser.enable = true;
           golines.enable = true;
@@ -55,12 +55,15 @@
           ktlint.enable = true;
           markdownlint.enable = true;
           mdformat.enable = true;
-          prismaFmt.enable = true;
+          nixfmt.enable = true;
+          prisma_format.enable = true;
+          pg_format.enable = true;
           prettier.enable = true;
           prettier.disableTsServerFormatter = true;
           shellharden.enable = true;
           sqlfluff.enable = true;
           stylua.enable = true;
+          treefmt.enable = true;
           typstfmt.enable = true;
           yamlfmt.enable = true;
           # yamlfix.enable = true;
