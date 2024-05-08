@@ -65,9 +65,9 @@ with lib.plusultra; {
     telescope = {
       enable = true;
       extensions = {
-        file_browser.enable = true;
+        file-browser.enable = true;
         fzf-native.enable = true;
-        media_files.enable = true;
+        media-files.enable = true;
         ui-select.enable = true;
         undo.enable = true;
       };
